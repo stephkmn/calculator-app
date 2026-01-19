@@ -15,8 +15,8 @@ function appendToDisplay(input){
         else if(operator != null){
             display.value = '';
         }
-    display.value += input;
-}
+        display.value += input;
+    }
     else{
         if(first == null || justUpdated){
             first = parseFloat(display.value);
@@ -31,7 +31,6 @@ function appendToDisplay(input){
 
 function clearDisplay(){
     display.value = ''; 
-    console.log("Display cleared.");
 
     // reset vars
     first = null;
@@ -43,10 +42,6 @@ function clearDisplay(){
 function calculate(){
     let second = parseFloat(display.value);
 
-    console.log("First: " + first);
-    console.log("Operator: " + operator);
-    console.log("Second: " + second);
-
     switch(operator){
         case '+': first = first + second; break;
         case '-': first = first - second; break;
@@ -55,8 +50,6 @@ function calculate(){
         default: return;
     }
 
-    console.log("Result: " + first);
-
     justCalculated = true;
     operator = null;
     display.value = first;
@@ -64,7 +57,7 @@ function calculate(){
 
 function backspace(){
     if(display.value.length > 0){
-    display.value = display.value.substring(0, display.value.length - 1);
+        display.value = display.value.substring(0, display.value.length - 1);
         justUpdated = true;
     }
 }
